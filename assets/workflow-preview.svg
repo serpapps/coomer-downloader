@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Coomer Downloader workflow preview</title>
+  <desc id="desc">Stylized preview card for the Coomer Downloader workflow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="72" y="72" width="1136" height="576" rx="28" fill="#1f1405" fill-opacity="0.9" stroke="#fcd34d" stroke-opacity="0.45"/>
+  <text x="110" y="170" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="52" font-weight="700">Coomer Downloader</text>
+  <text x="110" y="222" fill="#fde68a" font-family="Segoe UI, Arial, sans-serif" font-size="28">Scan posts, split media types, save organized folders.</text>
+  <rect x="110" y="286" width="310" height="228" rx="20" fill="#92400e"/>
+  <rect x="452" y="286" width="310" height="228" rx="20" fill="#b45309"/>
+  <rect x="794" y="286" width="374" height="228" rx="20" fill="#d97706"/>
+  <text x="140" y="350" fill="#fef3c7" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">1. Scan visible posts</text>
+  <text x="140" y="394" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">Load the creator page and let the</text>
+  <text x="140" y="426" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">extension collect the attachments.</text>
+  <text x="482" y="350" fill="#fef3c7" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">2. Filter by media type</text>
+  <text x="482" y="394" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">Review videos, images, GIFs, and</text>
+  <text x="482" y="426" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">text posts in separate tabs.</text>
+  <text x="824" y="350" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">3. Save organized folders</text>
+  <text x="824" y="394" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">Download visible content in bulk</text>
+  <text x="824" y="426" fill="#fffbeb" font-family="Segoe UI, Arial, sans-serif" font-size="22">with creator and post structure.</text>
+</svg>

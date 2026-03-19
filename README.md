@@ -1,309 +1,165 @@
-# Coomer Downloader Browser Extension (Chrome, Firefox, Edge, Opera, Brave)
+# Coomer Downloader (Browser Extension)
 
+> Save supported Coomer posts, videos, images, GIFs, and text into organized local folders.
 
-## Related
+Coomer Downloader is a browser extension built for users who want to save more than just one video at a time. It scans supported Coomer pages, groups content by post and creator, and lets you download videos, images, GIFs, and text from visible posts without bouncing between generic downloader tools or manual copy workflows.
 
----
-<details>
-<summary>
-  Research
-</summary>
-# How to Download Coomer Videos: Technical Analysis of Stream Patterns, CDNs, and Download Methods
-*A comprehensive research document analyzing Coomer's video infrastructure, embed patterns, stream formats, and optimal download strategies using modern tools*
-**Authors**: SERP Apps  
-**Date**: December 2025  
-**Version**: 1.0
----
-- [Coomer Downloader gist](https://gist.github.com/devinschumacher/e86dd22a135ca854743214392117ae01)
-## Abstract
+- Save supported Coomer videos, images, GIFs, and text posts
+- Scan visible creator pages and post pages from inside the browser
+- Download individual posts or bulk-save visible content
+- Keep files organized by creator and post structure
+- Use popup controls and in-page actions for faster collection
 
-This document covers Coomer's API endpoints for post metadata and the direct file URLs used for attachments, including video files.
+## Links
+
+- :rocket: Get it here: [Coomer Downloader](https://serp.ly/coomer-downloader)
+- :new: Latest release: [GitHub Releases](https://github.com/serpapps/coomer-downloader/releases/latest)
+- :question: Help center: [SERP Help](https://help.serp.co/en/)
+- :beetle: Report bugs: [GitHub Issues](https://github.com/serpapps/coomer-downloader/issues)
+- :bulb: Request features: [Feature Requests](https://github.com/serpapps/coomer-downloader/issues)
+
+## Preview
+
+![Coomer Downloader workflow preview](assets/workflow-preview.svg)
 
 ## Table of Contents
 
-1. [Introduction](#1-introduction)
-2. [Coomer Video Infrastructure Overview](#2-coomer-video-infrastructure-overview)
-3. [URL Patterns and Detection](#3-url-patterns-and-detection)
-4. [Stream Formats and CDN Analysis](#4-stream-formats-and-cdn-analysis)
-5. [yt-dlp Implementation Strategies](#5-yt-dlp-implementation-strategies)
-6. [FFmpeg Processing Techniques](#6-ffmpeg-processing-techniques)
-7. [Alternative Tools and Backup Methods](#7-alternative-tools-and-backup-methods)
-8. [Coomer API Integration](#8-coomer-api-integration)
-9. [Implementation Recommendations](#9-implementation-recommendations)
-10. [Troubleshooting and Edge Cases](#10-troubleshooting-and-edge-cases)
-11. [Conclusion](#11-conclusion)
+- [Why Coomer Downloader](#why-coomer-downloader)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Step-by-Step Tutorial: How to Download Posts from Coomer](#step-by-step-tutorial-how-to-download-posts-from-coomer)
+- [Supported Formats](#supported-formats)
+- [Who It's For](#who-its-for)
+- [Common Use Cases](#common-use-cases)
+- [Troubleshooting](#troubleshooting)
+- [Trial & Access](#trial--access)
+- [Installation Instructions](#installation-instructions)
+- [FAQ](#faq)
+- [Notes](#notes)
+- [License](#license)
+- [About Coomer](#about-coomer)
 
----
+## Why Coomer Downloader
 
-## 1. Introduction
+Coomer pages often contain mixed post types, attachments, and creator archives that generic video downloaders do not handle well. A one-file-at-a-time workflow breaks down quickly when you want an organized copy of a creator page or a batch of visible posts.
 
-Coomer aggregates creator posts and exposes attachments via a public API. Downloads focus on attachments rather than stream manifests.
+Coomer Downloader is designed around that problem. It scans supported Coomer pages, separates content by media type, and lets you save visible posts with cleaner folder organization so you can keep a usable archive instead of a pile of unnamed files.
 
-### 1.1 Research Scope
+## Features
 
-- Coomer creator and post API endpoints
-- Attachment URLs under /data/
-- Batch downloads via gallery-dl
+- Downloads supported videos, images, GIFs, and text posts
+- Page scanning for visible creator posts and post pages
+- Bulk download flow for visible content
+- Individual post downloads when you only want selected items
+- Organized saving by creator and post structure
+- Popup tabs for media-type filtering
+- In-page controls on supported video pages
+- Cross-browser support for Chrome, Edge, Brave, Opera, Firefox, Whale, and Yandex
 
-### 1.2 Methodology
+## How It Works
 
-- Query API endpoints for post metadata
-- Extract attachment URLs from JSON
-- Download files directly with yt-dlp or aria2c
+1. Install the extension from the latest release.
+2. Open Coomer and visit a supported creator page or post page.
+3. Let the extension scan the visible posts and attachments.
+4. Open the popup to review videos, images, GIFs, and text.
+5. Download visible content in bulk or save selected posts individually.
+6. Open the saved files from your Downloads folder.
 
----
+## Step-by-Step Tutorial: How to Download Posts from Coomer
 
-## 2. Coomer Video Infrastructure Overview
+1. Install Coomer Downloader from the latest GitHub release.
+2. Open a supported Coomer creator page or post page.
+3. Wait a moment for the extension to scan the visible content.
+4. Click the extension button to open the download popup.
+5. Review the tabs for videos, images and GIFs, or text posts.
+6. Choose whether to download visible content in bulk or save selected items only.
+7. Start the download and wait for the export to finish.
+8. Open the organized creator folder from your Downloads directory.
 
-### 2.1 Video Hosting Types
+## Supported Formats
 
-- Direct file attachments (MP4, images)
+- Input: Supported Coomer videos
+- Input: Supported Coomer images and GIFs
+- Input: Supported Coomer text posts
+- Output: Original media files plus formatted text exports where applicable
 
-### 2.2 CDN Architecture
+Saved content is organized locally by creator and post context so it is easier to browse later.
 
-- coomer.su (API and content)
-- coomer.party (alternative mirror)
+## Who It's For
 
-### 2.3 Video Processing Pipeline
+- Coomer users who want a cleaner way to save supported creator posts
+- Users building an organized archive instead of downloading one file at a time
+- People who need both media files and text post content together
+- Anyone who wants a browser-based bulk workflow instead of manual collection
 
-1. Client requests API for creator posts
-2. API returns attachment file paths
-3. Client downloads files from /data/
+## Common Use Cases
 
-### 2.4 Access Control and Authentication
+- Save visible posts from a creator page in one pass
+- Download selected videos, images, or GIFs from individual posts
+- Keep text post content alongside media attachments
+- Build a creator-organized offline archive
+- Revisit saved content later without re-scanning the site
 
-- Public API endpoints
-- Some services may require rate limiting
+## Troubleshooting
 
----
+**The extension is not finding any posts**  
+Refresh the page and wait for the visible posts to load fully before opening the popup.
 
-## 3. URL Patterns and Detection
+**Some attachments are missing**  
+The extension only detects content that is visible and loaded in the current browser session.
 
-### 3.1 Watch Page URL Patterns
+**The download feels incomplete**  
+Scroll the creator page to load more posts, then scan again.
 
-```
-https://coomer.su/<service>/user/<id>
-```
+**The page requires account access**  
+The extension only works on content you can already open in your active browser session.
 
-### 3.2 Embed URL Patterns
+## Trial & Access
 
-```
-https://coomer.su/data/<path>/<file>
-```
+- Includes **3 free downloads** so you can test the workflow first
+- Email sign-in uses secure one-time password verification
+- No credit card required for the trial
+- Unlimited downloads are available with a paid license
 
-### 3.3 Direct Media and CDN URL Patterns
+Start here: [https://serp.ly/coomer-downloader](https://serp.ly/coomer-downloader)
 
-```
-https://coomer.su/data/<path>/<file>.mp4
-https://coomer.su/data/<path>/<file>.jpg
-```
+## Installation Instructions
 
-### 3.4 Regex Patterns for URL Extraction
+1. Open the latest release page:
+   [https://github.com/serpapps/coomer-downloader/releases/latest](https://github.com/serpapps/coomer-downloader/releases/latest)
+2. Download the extension build for your browser.
+3. Install the extension.
+4. Open Coomer and navigate to a supported creator page or post page.
+5. Use the popup to scan and download visible content.
 
-```regex
-coomer\\.su/(?:\\w+)/user/(\\d+)
-/data/[^\\s\\\"']+\\.(mp4|jpg|png)
-```
+## FAQ
 
-### 3.5 Command-line URL Extraction
+**What types of content can I download?**  
+Supported videos, images, GIFs, and text posts can be collected through the extension.
 
-```bash
-grep -oE "https?://coomer\\.su/data/[^'\" ]+\.(mp4|jpg|png)" data.json | sort -u
-```
+**Can I download an entire creator page?**  
+You can bulk-download the visible posts currently loaded in your browser session.
 
----
+**Where are my downloads saved?**  
+Files are saved to your default Downloads location in creator-organized folders.
 
-## 4. Stream Formats and CDN Analysis
+**Does it save text posts too?**  
+Yes. Supported text posts can be exported alongside media attachments.
 
-### 4.1 Stream Formats
+**Do I need extra software?**  
+No. Everything runs through the browser extension.
 
-| Format | Extension | Notes |
-|--------|-----------|-------|
-| MP4 | .mp4 | Direct attachment downloads |
-| Images | .jpg/.png | Gallery attachments |
+## Notes
 
-### 4.2 Typical Quality Ladder
+- Only download content you own or have explicit permission to save
+- An internet connection is required while scanning and downloading
+- The extension only detects content visible in the current browser session
+- Source quality and file types depend on what the page exposes
 
-| Quality | Typical Resolution | Notes |
-|---------|--------------------|-------|
-| Low | 360p - 480p | Fast preview streams or mobile variants |
-| Medium | 720p | Common default for web playback |
-| High | 1080p+ | Available when source uploads are higher quality |
+## License
 
-### 4.3 CDN URL Construction and Query Parameters
+This repository includes an MIT license in [LICENSE.md](LICENSE.md).
 
-- Attachments are direct file URLs under /data/
-- No HLS manifests observed
+## About Coomer
 
-### 4.4 Validation and Inspection Commands
-
-```bash
-ffprobe -hide_banner -show_streams "file.mp4"
-```
-
----
-
-## 5. yt-dlp Implementation Strategies
-
-yt-dlp can download direct MP4 URLs. For bulk, use gallery-dl or aria2c with URL lists.
-
-### 5.1 Basic Usage
-
-```bash
-yt-dlp [OPTIONS] [--] URL [URL...]
-yt-dlp -F "https://example.com/watch/123"
-```
-
-### 5.2 Authentication and Cookies
-
-- Authentication generally not required for API access
-
-### 5.3 Format Selection and Output Templates
-
-```bash
-yt-dlp -f bestvideo+bestaudio/best "URL"
-yt-dlp -o "%(title)s.%(ext)s" "URL"
-yt-dlp --download-archive archive.txt "URL"
-```
-
-### 5.4 Site-Specific Examples
-
-```bash
-yt-dlp "https://coomer.su/data/<path>/<file>.mp4"
-```
-
-### 5.5 Batch and Archive Mode
-
-```bash
-yt-dlp -a urls.txt --download-archive archive.txt
-yt-dlp --no-overwrites --continue "URL"
-```
-
-### 5.6 Error Handling Patterns
-
-- Use --retries for intermittent 5xx responses
-
----
-
-## 6. FFmpeg Processing Techniques
-
-FFmpeg is only required for validation or remuxing if files are fragmented.
-
-### 6.1 Inspect and Validate Streams
-
-```bash
-ffprobe -hide_banner -i "file.mp4"
-```
-
-### 6.2 Common Remux and Repair Patterns
-
-```bash
-ffmpeg -i "playlist.m3u8" -c copy output.mp4
-ffmpeg -i input.mp4 -c copy -movflags +faststart output.mp4
-ffprobe -hide_banner -show_streams output.mp4
-```
-
----
-
-## 7. Alternative Tools and Backup Methods
-
-### 7.1 Streamlink
-
-```bash
-streamlink "https://coomer.su/data/<path>/<file>.mp4" best -o output.mp4
-```
-
-### 7.2 aria2c
-
-```bash
-aria2c -i urls.txt -j 4
-```
-
-### 7.3 gallery-dl
-
-```bash
-gallery-dl "https://coomer.su/<service>/user/<id>"
-```
-
-### 7.4 Browser DevTools
-
-- Use API JSON to build URL lists
-
----
-
-## 8. Coomer API Integration
-
-### 8.1 Known Endpoints
-
-- GET https://coomer.su/api/v1/creators
-- GET https://coomer.su/api/v1/<service>/user/<id>/posts
-
-### 8.2 Example Requests
-
-```bash
-curl https://coomer.su/api/v1/<service>/user/<id>/posts
-```
-
-### 8.3 Token and Session Handling
-
-- Attachment paths returned in the JSON response
-
----
-
-## 9. Implementation Recommendations
-
-### 9.1 Detection Hierarchy
-
-- Call API to list posts
-- Extract attachment URLs
-
-### 9.2 Site-Specific Notes
-
-- Batch download attachments with gallery-dl
-- Use download archive to prevent duplicates
-
-### 9.3 Storage and Naming Strategy
-
-- Group downloads by creator and post ID
-
----
-
-## 10. Troubleshooting and Edge Cases
-
-- Large creator libraries may require pagination
-
----
-
-## 11. Conclusion
-
-Coomer exposes direct file attachments via a public API. Implementations should query the API, extract attachment URLs, and download with gallery-dl, aria2c, or yt-dlp for MP4 files.
-
-| Tool | Best Use Case | Notes |
-|------|---------------|-------|
-| yt-dlp | Primary downloader for MP4/HLS | Supports cookies, format selection, retries |
-| ffmpeg | Remuxing and validation | Useful for HLS to MP4 conversion |
-| streamlink | Live/HLS fallback | Streams to file or pipes into ffmpeg |
-| aria2c | Multi-connection HTTP/HLS downloads | Good for large files and retries |
-| gallery-dl | Image-first or gallery-heavy sites | Best for gallery or attachment extraction |
-
-
----
-
-## Disclaimer and Ethical Use
-
-This document is provided for lawful, personal, or authorized use cases only. Always respect the site terms of service, content creator rights, and applicable laws. If DRM or explicit access controls are present, do not attempt to bypass them; use official downloads or creator-provided access instead.
-
-## Last Updated
-
-December 2025
-
-## Next Review
-
-90 days from last update or when site playback changes are observed.
-
-## Related
-
-- SERP Apps research index (internal)
-- SERP extension downloaders (internal)
-
-</details>
+Coomer pages often blend creator feeds, mixed attachments, and text-heavy posts in a way that makes manual downloading messy and slow. Coomer Downloader simplifies that workflow with page scanning, bulk saving, and structured output that is easier to keep organized.
